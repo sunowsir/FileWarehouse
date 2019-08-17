@@ -11,16 +11,16 @@ int main(void)
  
   curl = curl_easy_init();
   if(curl) {
-    char myurl[1000] = "http://api.fanyi.baidu.com/api/trans/vip/translate?";
-    char *appid = "20180926000212405";    //replace myAppid with your own appid
-    char *q = "apple";          //replace apple with your own text to be translate, ensure that the input text is encoded with UTF-8!
-    char *from = "en";          //replace en with your own language type of input text
-    char *to = "zh";            //replace zh with your own language type of output text
-    char salt[60];
+    unsigned char myurl[1000] = "http://api.fanyi.baidu.com/api/trans/vip/translate?";
+    unsigned char *appid = "20180926000212405";    //replace myAppid with your own appid
+    unsigned char *q = "apple";          //replace apple with your own text to be translate, ensure that the input text is encoded with UTF-8!
+    unsigned char *from = "auto";          //replace en with your own language type of input text
+    unsigned char *to = "auto";            //replace zh with your own language type of output text
+    unsigned char salt[60];
     int a = rand();
     sprintf(salt,"%d",a);
-    char *secret_key = "jdpjDwHibRmfPGd3XiwH";   //replace mySecretKey with your own mySecretKey
-    char sign[120] = "";
+    unsigned char *secret_key = "jdpjDwHibRmfPGd3XiwH";   //replace mySecretKey with your own mySecretKey
+    unsigned char sign[120] = "";
     strcat(sign,appid);
     strcat(sign,q);
     strcat(sign,salt);
@@ -28,7 +28,7 @@ int main(void)
     printf("%s\n",sign);
     unsigned char md[16];
     int i;
-    char tmp[3]={'\0'},buf[33]={'\0'};
+    unsigned char tmp[3]={'\0'},buf[33]={'\0'};
     MD5((unsigned char *)sign,strlen((unsigned char *)sign),md);
     for (i = 0; i < 16; i++){
         sprintf(tmp,"%2.2x",md[i]);
