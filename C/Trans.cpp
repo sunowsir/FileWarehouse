@@ -84,7 +84,3 @@ int Translate (const char *appid, const char *Secretkey, const char *SourceWord,
     return 0;
 }
 
-int main(int argc, char **argv) {
-    Translate("20180926000212405", "jdpjDwHibRmfPGd3XiwH", "apple", "auto", "auto");
-    return 0;
-}
